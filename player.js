@@ -8,17 +8,11 @@ class Player {
     this.onFloor = false;
   }
   move() {
-    // gravity
-    if (this.v_speed == 0) {
-      this.v_speed += 10;
-    }
-    this.v_speed *= this.gravity;
-    this.y += this.v_speed;
-
-    // collision with floor
-    if (this.y > f_height - tileSize) {
-      this.y = f_height - tileSize;
-      this.v_speed = 0;
+    if (!this.onFloor) {
+      this.v_speed == 0 ? (this.v_speed = 10) : this.v_speed;
+      this.y += this.v_speed;
+      this.v_speed *= this.gravity;
+      checkFloor(this.x, this.y);
     }
     // check keyboard input
     keyPressed();
@@ -28,7 +22,13 @@ class Player {
     rect(this.x, this.y, this.size, this.size);
   }
 }
-
+function checkFloor(x, y) {
+  if (y > f_height - tileSize) {
+    player.y = f_height - tileSize;
+    this.onFloor = true;
+    v_speed = 0;
+  }
+}
 function keyPressed() {
   // move left - right
   if (keyIsDown(LEFT_ARROW)) {
@@ -37,6 +37,11 @@ function keyPressed() {
   if (keyIsDown(RIGHT_ARROW)) {
     player.x += 10;
   }
+  if (player.onFloor) {
+    if (keyIsDown(UP_ARROW)) {
+      player.y -= 50;
+    }
+  }
 }
 
-// *TODO make isOnFloor function, and add vertical velocity function n shit
+// *TODO make shit work
