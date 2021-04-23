@@ -1,3 +1,5 @@
+let reward;
+
 class Reward {
   constructor(x, y, size) {
     this.x = x;
