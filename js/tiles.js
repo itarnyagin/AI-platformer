@@ -1,12 +1,17 @@
-let floorHeight = 400;
-function drawTiles() {
-  for (let i = 0; i < tiles.length; i++) {
-    rect(tiles[i][0], tiles[i][1], tiles[i][2]);
+class Tile {
+  constructor(x, y, s) {
+    this.x = x;
+    this.y = y;
+    this.s = s;
   }
 }
 
-function makeTile(x, y, s) {
-  tiles.push([x, y, s]);
-}
-
-let tiles = [];
+let tileMap = {
+  "3,3": { x: 300, y: 200, s: 50 },
+  "3,4": { x: 300, y: 400, s: 50 },
+  "2,2": { x: 200, y: 200, s: 50 },
+  "2,3": { x: 200, y: 300, s: 50 },
+};
+let wrongMap = new Map();
+wrongMap["bla"] = "blaa";
+wrongMap["bla2"] = "blaaa2";

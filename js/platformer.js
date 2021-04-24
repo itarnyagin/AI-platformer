@@ -1,6 +1,12 @@
+let btn;
 let gridSize = 50;
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  btn = createButton("GUI");
+  btn.position(0, 0);
+  btn.mouseClicked(() => {
+    gui = !gui;
+  });
 }
 
 function draw() {
@@ -13,9 +19,9 @@ function draw() {
   // rendering
   utils.grid(gridSize);
   utils.helperText();
-  utils.gui(mouseX, mouseY, gridSize);
+  utils.gui(mouseX, mouseY);
 
   // render tiles
   fill("green");
-  drawTiles();
+  tiles.drawTiles();
 }
