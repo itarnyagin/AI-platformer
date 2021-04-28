@@ -1,3 +1,5 @@
+let tiles;
+let tileMap;
 let btn;
 let gridSize = 50;
 function setup() {
@@ -19,9 +21,8 @@ function draw() {
   // rendering
   utils.grid(gridSize);
   utils.helperText();
-  utils.gui(mouseX, mouseY);
 
   // render tiles
   fill("green");
-  tiles.drawTiles();
+  tiles.render();
 }
