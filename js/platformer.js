@@ -1,5 +1,4 @@
 let tiles;
-let tileMap;
 let btn;
 let gridSize = 50;
 function setup() {

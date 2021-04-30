@@ -31,6 +31,11 @@ let utils = {
 
     console.log(createIndex(300, 300));
     if (mouseIsPressed == true) {
+      tiles.tileMap[createIndex(snap_x, snap_y)] = {
+        x: snap_x,
+        y: snap_y,
+        s: gridSize,
+      };
     }
   },
 };

@@ -6,14 +6,10 @@ class Tile {
   }
 }
 tiles = {
-  tileMap: {
-    "3,2": { x: 300, y: 200, s: 50 },
-    "3,4": { x: 300, y: 400, s: 50 },
-    "2,2": { x: 200, y: 200, s: 50 },
-    "2,3": { x: 200, y: 300, s: 50 },
-  },
+  tileMap: {},
   render() {
-    for (let i = 0; i < Object.size(tiles.tileMap); i++) {
+    let mapSize = Object.size(tiles.tileMap);
+    for (let i = 0; i < mapSize; i++) {
       rect(getTile(i).x, getTile(i).y, getTile(i).s, getTile(i).s);
     }
   },
