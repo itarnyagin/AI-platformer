@@ -18,9 +18,12 @@ function draw() {
   strokeWeight(4);
   stroke(255);
 
-  // rendering
-  utils.grid(gridSize);
+  // utilities
   utils.helperText();
+  if (gui) {
+    utils.grid(gridSize);
+    utils.placeTile(mouseX, mouseY, gridSize);
+  }
 
   // render tiles
   fill("green");

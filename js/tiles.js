@@ -13,11 +13,14 @@ tiles = {
     "2,3": { x: 200, y: 300, s: 50 },
   },
   render() {
-    rect(
-      this.tileMap["3,2"].x,
-      this.tileMap["3,2"].y,
-      this.tileMap["3,2"].s,
-      this.tileMap["3,2"].s
-    );
+    for (let i = 0; i < Object.size(tiles.tileMap); i++) {
+      rect(getTile(i).x, getTile(i).y, getTile(i).s, getTile(i).s);
+    }
   },
 };
+
+function getTile(n, o = tiles.tileMap) {
+  let index = Object.keys(o)[n];
+  let tile = tiles.tileMap[index];
+  return tile;
+}

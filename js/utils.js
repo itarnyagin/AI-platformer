@@ -19,10 +19,38 @@ let utils = {
   helperText() {
     fill("black");
     textSize(20);
-    text("new tilemap thing do", 10, 50);
+    text(Object.size(tiles.tileMap), 10, 50);
     text("value 2", 10, 80);
   },
+  // gui
+  placeTile(x, y, s) {
+    let gridOffset = s / 2;
+    let snap_x = snap(x, gridOffset) - gridOffset;
+    let snap_y = snap(y, gridOffset) - gridOffset;
+    rect(snap_x, snap_y, gridSize, gridSize);
+
+    console.log(createIndex(300, 300));
+    if (mouseIsPressed == true) {
+    }
+  },
 };
+
+// snap
+function snap(op, gridOffset) {
+  // subtract offset (to center lines)
+  // divide by grid to get row/column
+  // round to snap to the closest one
+  var cell = Math.round((op - gridOffset) / gridSize);
+  // multiply back to grid scale
+  // add offset to center
+  return cell * gridSize + gridOffset;
+}
+
+// index
+function createIndex(x, y) {
+  let index = `${x / gridSize},${y / gridSize}`;
+  return index;
+}
 
 // object size
 
