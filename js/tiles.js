@@ -7,7 +7,8 @@ function getTile(n, o = tiles.tileMap) {
 tiles = {
   render() {
     for (let i = 0; i < Object.size(tiles.tileMap); i++) {
-      rect(getTile(i).x, getTile(i).y, getTile(i).s, getTile(i).s);
+      let tile = getTile(i);
+      rect(tile.x, tile.y, tile.s, tile.s);
     }
   },
 };
