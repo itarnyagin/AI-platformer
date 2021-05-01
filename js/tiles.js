@@ -9,6 +9,7 @@ tiles = {
     for (let i = 0; i < Object.size(tiles.tileMap); i++) {
       let tile = getTile(i);
       rect(tile.x, tile.y, tile.s, tile.s);
+      image(img, tile.x, tile.y, tile.s, tile.s);
     }
   },
 };

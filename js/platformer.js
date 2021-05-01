@@ -1,6 +1,10 @@
 let tiles;
 let btn;
 let gridSize = 50;
+function preload() {
+  img = loadImage("../assets/bitmap.png  ");
+  sprite = loadImage("../assets/spinache.jpg");
+}
 function setup() {
   createCanvas(windowWidth, windowHeight);
   btn = createButton("GUI");
@@ -8,6 +12,8 @@ function setup() {
   btn.mouseClicked(() => {
     gui = !gui;
   });
+  // player
+  player = new Player(100, 0);
 }
 
 function draw() {
@@ -31,4 +37,6 @@ function draw() {
   tiles.render();
   // helper text
   utils.helperText();
+  // player dynamics
+  player.render();
 }
