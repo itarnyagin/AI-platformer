@@ -14,9 +14,15 @@ class Player {
     let mapSize = Object.size(tiles.tileMap);
     for (let i = 0; i < mapSize; i++) {
       let tile = utils.getTile(i);
-      if (player.y >= tile.y - gridSize) {
-        player.y = 0;
+      //scenario a: player is on top of a block
+      if (
+        player.y + gridSize > tile.y &&
+        player.x + gridSize > tile.x &&
+        player.x < tile.x + gridSize
+      ) {
+        player.y = tile.y - gridSize;
       }
+      // scenario c: player is under a block
     }
   }
   render() {

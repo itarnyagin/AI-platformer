@@ -39,7 +39,6 @@ function draw() {
   } else {
     strokeWeight(0);
   }
-
   // render tiles
   fill("purple");
   tiles.render();
@@ -49,4 +48,13 @@ function draw() {
   player.move();
   player.collide();
   player.render();
+}
+
+function keyPressed() {
+  if (key == "g") {
+    gui = !gui;
+  }
+  if (key == "s") {
+    player.onFloor = false;
+  }
 }
