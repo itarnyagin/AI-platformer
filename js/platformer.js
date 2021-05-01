@@ -12,19 +12,23 @@ function setup() {
 
 function draw() {
   // style and colors
-  background("pink");
+  background("lightblue");
   fill(0);
-  strokeWeight(4);
   stroke(255);
 
   // utilities
-  utils.helperText();
   if (gui) {
     utils.grid(gridSize);
-    utils.placeTile(mouseX, mouseY, gridSize);
+    strokeWeight(1);
+    utils.placeTile(mouseX, mouseY);
+    strokeWeight(1);
+  } else {
+    strokeWeight(0);
   }
 
   // render tiles
-  fill("green");
+  fill("purple");
   tiles.render();
+  // helper text
+  utils.helperText();
 }

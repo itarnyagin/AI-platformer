@@ -4,13 +4,6 @@ function getTile(n, o = tiles.tileMap) {
   return tile;
 }
 
-class Tile {
-  constructor(x, y, s) {
-    this.x = x;
-    this.y = y;
-    this.s = s;
-  }
-}
 tiles = {
   render() {
     for (let i = 0; i < Object.size(tiles.tileMap); i++) {
