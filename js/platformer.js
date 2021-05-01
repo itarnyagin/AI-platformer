@@ -1,5 +1,6 @@
 let tiles;
-let btn;
+let btn_gui;
+let btn_start;
 let gridSize = 50;
 function preload() {
   img = loadImage("../assets/bitmap.png  ");
@@ -7,10 +8,17 @@ function preload() {
 }
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  btn = createButton("GUI");
-  btn.position(0, 0);
-  btn.mouseClicked(() => {
+  // gui button
+  btn_gui = createButton("GUI");
+  btn_gui.position(0, 0);
+  btn_gui.mouseClicked(() => {
     gui = !gui;
+  });
+  // start button
+  btn_start = createButton("START");
+  btn_start.position(0, 35);
+  btn_start.mouseClicked(() => {
+    player.onFloor = false;
   });
   // player
   player = new Player(100, 0);
@@ -38,5 +46,7 @@ function draw() {
   // helper text
   utils.helperText();
   // player dynamics
+  player.move();
+  player.collide();
   player.render();
 }

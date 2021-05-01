@@ -17,7 +17,7 @@ let utils = {
   helperText() {
     fill("black");
     textSize(20);
-    text(Object.size(tiles.tileMap), 10, 50);
+    text(Object.size(tiles.tileMap), 10, 90);
   },
   // gui
   placeTile(x, y) {
@@ -33,6 +33,9 @@ let utils = {
         s: gridSize,
       };
     }
+  },
+  getTile(n) {
+    return tiles.tileMap[Object.keys(tiles.tileMap)[n]];
   },
 };
 

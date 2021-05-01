@@ -1,0 +1,4 @@
+Shit to do:
+
+1. make a variable for Object.size(tiles.tileMap) so that you don't have to call the function for every for() loop instance.
+2. make collision system
