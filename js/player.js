@@ -6,8 +6,16 @@ class Player {
     this.onFloor = true;
   }
   move() {
+    // gravity
     if (!this.onFloor) {
       this.y += 10;
+    }
+    // input
+    if (keyIsDown(LEFT_ARROW)) {
+      this.x -= 5;
+    }
+    if (keyIsDown(RIGHT_ARROW)) {
+      this.x += 5;
     }
   }
   collide() {
@@ -16,13 +24,13 @@ class Player {
       let tile = utils.getTile(i);
       //scenario a: player is on top of a block
       if (
-        player.y + gridSize > tile.y &&
+        player.y > tile.y - gridSize &&
+        player.y < tile.y + gridSize &&
         player.x + gridSize > tile.x &&
         player.x < tile.x + gridSize
       ) {
         player.y = tile.y - gridSize;
       }
-      // scenario c: player is under a block
     }
   }
   render() {
