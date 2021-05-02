@@ -3,19 +3,20 @@ class Player {
     this.x = x;
     this.y = y;
     this.gravity = 10;
-    this.onFloor = true;
+    this.onFloor = false;
   }
   move() {
     // gravity
-    if (!this.onFloor) {
-      this.y += 10;
-    }
+    this.y += 10;
     // input
     if (keyIsDown(LEFT_ARROW)) {
       this.x -= 5;
     }
     if (keyIsDown(RIGHT_ARROW)) {
       this.x += 5;
+    }
+    if (keyIsDown(UP_ARROW)) {
+      this.y -= 15;
     }
   }
   collide() {
@@ -24,12 +25,13 @@ class Player {
       let tile = utils.getTile(i);
       //scenario a: player is on top of a block
       if (
-        player.y > tile.y - gridSize &&
-        player.y < tile.y + gridSize &&
-        player.x + gridSize > tile.x &&
-        player.x < tile.x + gridSize
+        this.y > tile.y - gridSize &&
+        this.y < tile.y + gridSize &&
+        this.x + gridSize > tile.x &&
+        this.x < tile.x + gridSize
       ) {
-        player.y = tile.y - gridSize;
+        this.y = tile.y - gridSize;
+        this.onFloor = true;
       }
     }
   }

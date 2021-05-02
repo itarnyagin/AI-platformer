@@ -18,6 +18,7 @@ let utils = {
     fill("black");
     textSize(20);
     text(Object.size(tiles.tileMap), 10, 90);
+    text(player.onFloor, 10, 120);
   },
   // gui
   placeTile(x, y) {

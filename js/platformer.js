@@ -1,6 +1,7 @@
 let tiles;
 let btn_gui;
 let btn_start;
+let start = false;
 let gridSize = 50;
 function preload() {
   img = loadImage("../assets/bitmap.png  ");
@@ -18,7 +19,7 @@ function setup() {
   btn_start = createButton("START");
   btn_start.position(0, 35);
   btn_start.mouseClicked(() => {
-    player.onFloor = false;
+    start = true;
   });
   // player
   player = new Player(100, 0);
@@ -45,8 +46,10 @@ function draw() {
   // helper text
   utils.helperText();
   // player dynamics
-  player.move();
-  player.collide();
+  if (start) {
+    player.move();
+    player.collide();
+  }
   player.render();
 }
 
@@ -55,6 +58,6 @@ function keyPressed() {
     gui = !gui;
   }
   if (key == "s") {
-    player.onFloor = false;
+    start = true;
   }
 }
